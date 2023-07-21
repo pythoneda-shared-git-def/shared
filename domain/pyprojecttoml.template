@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "@pname@"
+version = "@version@"
+description = "@desc@"
+authors = [ @authors@ ]
+readme = "README.md"
+homepage = "@homepage@"
+packages = [{include = "@package@"}]
+
+[tool.poetry.dependencies]
+dulwich = "^@dulwichVersion@"
+GitPython = "^@gitPythonVersion@"
+paramiko = "^@paramikoVersion@"
+python = "^@pythonMajorMinorVersion@"
+pythoneda-shared-pythoneda-domain = "^@pythonedaSharedPythonedaDomainVersion@"
+semver = "^@semverVersion@"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
