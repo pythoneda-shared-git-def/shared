@@ -5,7 +5,7 @@
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
     pythoneda-shared-pythoneda-domain = {
       url =
-        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.1a25?dir=domain";
+        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.1a26?dir=domain";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
     };
@@ -81,6 +81,13 @@
             '';
 
             postInstall = ''
+              pushd /build/$sourceRoot
+              for f in $(find . -name '__init__.py'); do
+                if [[ ! -e $out/lib/python${pythonMajorMinorVersion}/site-packages/$f ]]; then
+                  cp $f $out/lib/python${pythonMajorMinorVersion}/site-packages/$f;
+                fi
+              done
+              popd
               mkdir $out/dist
               cp dist/${wheelName} $out/dist
               jq ".url = \"$out/dist/${wheelName}\"" $out/lib/python${pythonMajorMinorVersion}/site-packages/${pnameWithUnderscores}-${version}.dist-info/direct_url.json > temp.json && mv temp.json $out/lib/python${pythonMajorMinorVersion}/site-packages/${pnameWithUnderscores}-${version}.dist-info/direct_url.json
