@@ -22,9 +22,9 @@ rec {
       echo -e " \033[32m| |_) | |_| | |_| | | | (_) | | | |\033[34m  __/\033[35m (_| |\033[36m (_| |\033[34mhttps://github.com/pythoneda-realm-rydnr\033[0m";
       echo -e " \033[32m| .__/ \__, |\__|_| |_|\___/|_| |_|\033[34m\___|\033[35m\__,_|\033[36m\__,_|\033[35mhttps://github.com/nixos/nixpkgs/tree/$NIXPKGSRELEASE\033[0m";
       echo -e " \033[32m| |     __/ |         \033[34mPYTHONEDA-SHARED-GIT          \033[36mhttps://docs.python.org/$PYVERSION\033[0m";
-      echo -e " \033[32m|_|\033[37m \033[31mS\033[36mD\033[32m |___/                 \033[33mDOMAIN                 \033[37mhttps://patreon.com/rydnr\033[0m";
+      echo -e " \033[32m|_|\033[37m \033[31mS\033[36mD\033[32m |___/                 \033[33mSHARED                 \033[37mhttps://patreon.com/rydnr\033[0m";
       echo;
-      echo " Thank you for using pythoneda-shared-git/domain, and for your appreciation of free software.";
+      echo " Thank you for using pythoneda-shared-git/shared, and for your appreciation of free software.";
       echo;
       export PYTHONPATH="$(python $PYTHONEDA/dist/scripts/fix_pythonpath.py)";
     '';
