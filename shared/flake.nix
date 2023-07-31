@@ -1,30 +1,64 @@
+# shared/flake.nix
+#
+# This file packages pythoneda-shared-git/shared as a Nix flake.
+#
+# Copyright (C) 2023-today rydnr's pythoneda-shared-git/shared-artifact
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 {
   description = "Shared kernel modelled after git concepts";
   inputs = rec {
     nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
-    pythoneda-shared-pythoneda-domain = {
-      url =
-        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.1a26?dir=domain";
+    pythoneda-shared-pythoneda-banner = {
+      url = "github:pythoneda-shared-pythoneda/banner/0.0.1a5";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+    };
+    pythoneda-shared-pythoneda-domain = {
+      url =
+        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.1a28?dir=domain";
+      inputs.nixos.follows = "nixos";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.pythoneda-shared-pythoneda-banner.follows =
+        "pythoneda-shared-pythoneda-banner";
     };
   };
   outputs = inputs:
     with inputs;
     flake-utils.lib.eachDefaultSystem (system:
       let
+        org = "pythoneda-shared-git";
+        repo = "shared";
+        version = "0.0.1a6";
+        sha256 = "sha256-8egCpLIaHoLlKZgML/Mqk+n4br62rB3HZQcf6dIpq/A=";
+        pname = "${org}-${repo}";
         pkgs = import nixos { inherit system; };
         description = "Shared kernel modelled after git concepts";
         license = pkgs.lib.licenses.gpl3;
-        homepage = "https://github.com/pythoneda-shared-git/shared";
-        maintainers = [ "rydnr <github@acm-sl.org>" ];
-        nixpkgsRelease = "nixos-23.05";
-        shared = import ./nix/shared.nix;
+        homepage = "https://github.com/${org}/${repo}";
+        maintainers = with pkgs.lib.maintainers;
+          [ "rydnr <github@acm-sl.org>" ];
+        archRole = "S";
+        space = "_";
+        layer = "D";
+        nixosVersion = builtins.readFile "${nixos}/.version";
+        nixpkgsRelease = "nixos-${nixosVersion}";
+        shared = import "${pythoneda-shared-pythoneda-banner}/nix/shared.nix";
         pythoneda-shared-git-shared-for =
-          { python, pythoneda-shared-pythoneda-domain, version }:
+          { python, pythoneda-shared-pythoneda-domain }:
           let
-            pname = "pythoneda-shared-git-shared";
             pnameWithUnderscores =
               builtins.replaceStrings [ "-" ] [ "_" ] pname;
             pythonpackage = "pythoneda.shared.git";
@@ -54,10 +88,9 @@
               src = pyprojectTemplateFile;
             };
             src = pkgs.fetchFromGitHub {
-              owner = "pythoneda-shared-git";
-              repo = "shared";
+              owner = org;
               rev = version;
-              sha256 = "sha256-8egCpLIaHoLlKZgML/Mqk+n4br62rB3HZQcf6dIpq/A=";
+              inherit repo sha256;
             };
 
             format = "pyproject";
@@ -97,74 +130,62 @@
               inherit description homepage license maintainers;
             };
           };
-        pythoneda-shared-git-shared-0_0_1a6-for =
-          { python, pythoneda-shared-pythoneda-domain }:
-          pythoneda-shared-git-shared-for {
-            version = "0.0.1a6";
-            inherit python pythoneda-shared-pythoneda-domain;
-          };
       in rec {
         defaultPackage = packages.default;
         devShells = rec {
-          default = pythoneda-shared-git-shared-latest;
-          pythoneda-shared-git-shared-0_0_1a6-python38 = shared.devShell-for {
-            package = packages.pythoneda-shared-git-shared-0_0_1a6-python38;
+          default = pythoneda-shared-git-shared-default;
+          pythoneda-shared-git-shared-default =
+            pythoneda-shared-git-shared-python310;
+          pythoneda-shared-git-shared-python38 = shared.devShell-for {
+            package = packages.pythoneda-shared-git-shared-python38;
             python = pkgs.python38;
+            pythoneda-shared-pythoneda-banner =
+              pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python38;
             pythoneda-shared-pythoneda-domain =
-              pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-latest-python38;
-            inherit pkgs nixpkgsRelease;
+              pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python38;
+            inherit archRole layer nixpkgsRelease org pkgs repo space;
           };
-          pythoneda-shared-git-shared-0_0_1a6-python39 = shared.devShell-for {
-            package = packages.pythoneda-shared-git-shared-0_0_1a6-python39;
+          pythoneda-shared-git-shared-python39 = shared.devShell-for {
+            package = packages.pythoneda-shared-git-shared-python39;
             python = pkgs.python39;
+            pythoneda-shared-pythoneda-banner =
+              pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python39;
             pythoneda-shared-pythoneda-domain =
-              pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-latest-python39;
-            inherit pkgs nixpkgsRelease;
+              pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python39;
+            inherit archRole layer nixpkgsRelease org pkgs repo space;
           };
-          pythoneda-shared-git-shared-0_0_1a6-python310 = shared.devShell-for {
-            package = packages.pythoneda-shared-git-shared-0_0_1a6-python310;
+          pythoneda-shared-git-shared-python310 = shared.devShell-for {
+            package = packages.pythoneda-shared-git-shared-python310;
             python = pkgs.python310;
+            pythoneda-shared-pythoneda-banner =
+              pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python310;
             pythoneda-shared-pythoneda-domain =
-              pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-latest-python310;
-            inherit pkgs nixpkgsRelease;
+              pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python310;
+            inherit archRole layer nixpkgsRelease org pkgs repo space;
           };
-          pythoneda-shared-git-shared-latest-python38 =
-            pythoneda-shared-git-shared-0_0_1a6-python38;
-          pythoneda-shared-git-shared-latest-python39 =
-            pythoneda-shared-git-shared-0_0_1a6-python39;
-          pythoneda-shared-git-shared-latest-python310 =
-            pythoneda-shared-git-shared-0_0_1a6-python310;
-          pythoneda-shared-git-shared-latest =
-            pythoneda-shared-git-shared-latest-python310;
         };
         packages = rec {
-          pythoneda-shared-git-shared-0_0_1a6-python38 =
-            pythoneda-shared-git-shared-0_0_1a6-for {
+          default = pythoneda-shared-git-shared-default;
+          pythoneda-shared-git-shared-default =
+            pythoneda-shared-git-shared-python310;
+          pythoneda-shared-git-shared-python38 =
+            pythoneda-shared-git-shared-for {
               python = pkgs.python38;
               pythoneda-shared-pythoneda-domain =
-                pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-latest-python38;
+                pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python38;
             };
-          pythoneda-shared-git-shared-0_0_1a6-python39 =
-            pythoneda-shared-git-shared-0_0_1a6-for {
+          pythoneda-shared-git-shared-python39 =
+            pythoneda-shared-git-shared-for {
               python = pkgs.python39;
               pythoneda-shared-pythoneda-domain =
-                pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-latest-python39;
+                pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python39;
             };
-          pythoneda-shared-git-shared-0_0_1a6-python310 =
-            pythoneda-shared-git-shared-0_0_1a6-for {
+          pythoneda-shared-git-shared-python310 =
+            pythoneda-shared-git-shared-for {
               python = pkgs.python310;
               pythoneda-shared-pythoneda-domain =
-                pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-latest-python310;
+                pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python310;
             };
-          pythoneda-shared-git-shared-latest-python38 =
-            pythoneda-shared-git-shared-0_0_1a6-python38;
-          pythoneda-shared-git-shared-latest-python39 =
-            pythoneda-shared-git-shared-0_0_1a6-python39;
-          pythoneda-shared-git-shared-latest-python310 =
-            pythoneda-shared-git-shared-0_0_1a6-python310;
-          pythoneda-shared-git-shared-latest =
-            pythoneda-shared-git-shared-latest-python310;
-          default = pythoneda-shared-git-shared-latest;
         };
       });
 }
