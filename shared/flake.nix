@@ -44,6 +44,7 @@
         version = "0.0.1a6";
         sha256 = "sha256-8egCpLIaHoLlKZgML/Mqk+n4br62rB3HZQcf6dIpq/A=";
         pname = "${org}-${repo}";
+        pythonpackage = "pythoneda.shared.git";
         pkgs = import nixos { inherit system; };
         description = "Shared kernel modelled after git concepts";
         license = pkgs.lib.licenses.gpl3;
@@ -61,7 +62,6 @@
           let
             pnameWithUnderscores =
               builtins.replaceStrings [ "-" ] [ "_" ] pname;
-            pythonpackage = "pythoneda.shared.git";
             pythonVersionParts = builtins.splitVersion python.version;
             pythonMajorVersion = builtins.head pythonVersionParts;
             pythonMajorMinorVersion =
