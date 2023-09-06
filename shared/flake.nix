@@ -41,8 +41,8 @@
       let
         org = "pythoneda-shared-git";
         repo = "shared";
-        version = "0.0.1a10";
-        sha256 = "sha256-uglha8d+jmzXWQYjZdxSw4EitPmk1cjWKpQPLVWA7W0=";
+        version = "0.0.1a11";
+        sha256 = "sha256-wYc0dDHcA90jTDMmAtDwWyE2qGAPrQhUQqaRk4xr4CQ=";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.shared.git";
         pkgs = import nixos { inherit system; };
