@@ -41,7 +41,7 @@
       let
         org = "pythoneda-shared-git";
         repo = "shared";
-        version = "0.0.1a14";
+        version = "0.0.1a15";
         sha256 = "sha256-ESy2AhmCxESVsTWqWt8Bh4FsOuLq2+zo7vuqOKSNIgc=";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.shared.git";
