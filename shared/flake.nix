@@ -19,20 +19,20 @@
 {
   description = "Shared kernel modelled after git concepts";
   inputs = rec {
-    nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
+    nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     pythoneda-shared-pythoneda-banner = {
-      url = "github:pythoneda-shared-pythoneda/banner/0.0.6";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
+      url = "github:pythoneda-shared-pythoneda/banner/0.0.25";
     };
     pythoneda-shared-pythoneda-domain = {
-      url =
-        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.7?dir=domain";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
+      url =
+        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.16?dir=domain";
     };
   };
   outputs = inputs:
@@ -41,8 +41,8 @@
       let
         org = "pythoneda-shared-git";
         repo = "shared";
-        version = "0.0.4";
-        sha256 = "11v0iwj3wzj8nzkhhacil4gchm8p8lmykq8qqwamgsbayc67j9i9";
+        version = "0.0.5";
+        sha256 = "0c4nrv52bx15qrgizvvvm1r42vjjih4yqp7y2k32dg15yasqnphg";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.shared.git";
         pkgs = import nixos { inherit system; };
@@ -77,15 +77,16 @@
               authors = builtins.concatStringsSep ","
                 (map (item: ''"${item}"'') maintainers);
               desc = description;
-              dulwichVersion = python.pkgs.dulwich.version;
-              gitPythonVersion = python.pkgs.GitPython.version;
+              dulwich = python.pkgs.dulwich.version;
+              gitPython = python.pkgs.GitPython.version;
               inherit homepage pname pythonMajorMinorVersion pythonpackage
                 version;
               package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
-              paramikoVersion = python.pkgs.paramiko.version;
-              pythonedaSharedPythonedaDomainVersion =
+              packaging = python.pkgs.packaging.version;
+              paramiko = python.pkgs.paramiko.version;
+              pythonedaSharedPythonedaDomain =
                 pythoneda-shared-pythoneda-domain.version;
-              semverVersion = python.pkgs.semver.version;
+              semver = python.pkgs.semver.version;
               src = pyprojectTemplateFile;
             };
             src = pkgs.fetchFromGitHub {
@@ -100,6 +101,7 @@
             propagatedBuildInputs = with python.pkgs; [
               dulwich
               GitPython
+              packaging
               paramiko
               pythoneda-shared-pythoneda-domain
               semver
@@ -138,6 +140,9 @@
           pythoneda-shared-git-shared-default =
             pythoneda-shared-git-shared-python311;
           pythoneda-shared-git-shared-python38 = shared.devShell-for {
+            banner = "${
+                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python38
+              }/bin/banner.sh";
             package = packages.pythoneda-shared-git-shared-python38;
             python = pkgs.python38;
             pythoneda-shared-pythoneda-banner =
@@ -147,6 +152,9 @@
             inherit archRole layer nixpkgsRelease org pkgs repo space;
           };
           pythoneda-shared-git-shared-python39 = shared.devShell-for {
+            banner = "${
+                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python39
+              }/bin/banner.sh";
             package = packages.pythoneda-shared-git-shared-python39;
             python = pkgs.python39;
             pythoneda-shared-pythoneda-banner =
@@ -156,6 +164,9 @@
             inherit archRole layer nixpkgsRelease org pkgs repo space;
           };
           pythoneda-shared-git-shared-python310 = shared.devShell-for {
+            banner = "${
+                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python310
+              }/bin/banner.sh";
             package = packages.pythoneda-shared-git-shared-python310;
             python = pkgs.python310;
             pythoneda-shared-pythoneda-banner =
@@ -165,6 +176,9 @@
             inherit archRole layer nixpkgsRelease org pkgs repo space;
           };
           pythoneda-shared-git-shared-python311 = shared.devShell-for {
+            banner = "${
+                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python311
+              }/bin/banner.sh";
             package = packages.pythoneda-shared-git-shared-python311;
             python = pkgs.python311;
             pythoneda-shared-pythoneda-banner =

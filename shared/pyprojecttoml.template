@@ -26,12 +26,13 @@ homepage = "@homepage@"
 packages = [{include = "@package@"}]
 
 [tool.poetry.dependencies]
-dulwich = "^@dulwichVersion@"
-GitPython = "^@gitPythonVersion@"
-paramiko = "^@paramikoVersion@"
+dulwich = "^@dulwich@"
+GitPython = "^@gitPython@"
+packaging = "^@packaging@"
+paramiko = "^@paramiko@"
 python = "^@pythonMajorMinorVersion@"
-pythoneda-shared-pythoneda-domain = "^@pythonedaSharedPythonedaDomainVersion@"
-semver = "^@semverVersion@"
+pythoneda-shared-pythoneda-domain = "^@pythonedaSharedPythonedaDomain@"
+semver = "^@semver@"
 
 [build-system]
 requires = ["poetry-core"]
