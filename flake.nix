@@ -103,6 +103,7 @@
               packaging
               paramiko
               pythoneda-shared-pythoneda-domain
+              requests
               semver
             ];
 
