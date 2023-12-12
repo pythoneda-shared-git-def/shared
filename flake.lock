@@ -18,11 +18,11 @@
     },
     "nixos": {
       "locked": {
-        "lastModified": 1695346609,
-        "narHash": "sha256-jur+AjgRvablLA2oBvC4FD89zCXttVQDwi6OXk5x/14=",
+        "lastModified": 1702221085,
+        "narHash": "sha256-Br3GCSkkvkmw46cT6wCz6ro2H1WgDMWbKE0qctbdtL0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e9b4b56e5a20ac322c0c01ccab7ec697ab076ea0",
+        "rev": "c2786e7084cbad90b4f9472d5b5e35ecb57958af",
         "type": "github"
       },
       "original": {
@@ -42,16 +42,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1701846624,
-        "narHash": "sha256-vKhwrW7mKuYtppsyspoNg3GKpKSNEJj5EOlq8vk2Lb0=",
+        "lastModified": 1702405836,
+        "narHash": "sha256-CtOJHg95ZVeUGIFa4dWONdyb1HZoNQ+X/TR307NbnQI=",
         "owner": "pythoneda-shared-pythoneda-def",
         "repo": "banner",
-        "rev": "551dbd0af356d896834cc2292425bf745a2b534c",
+        "rev": "d391e0941b4f45dd96810239a703ab593b02e818",
         "type": "github"
       },
       "original": {
         "owner": "pythoneda-shared-pythoneda-def",
-        "ref": "0.0.35",
+        "ref": "0.0.36",
         "repo": "banner",
         "type": "github"
       }
@@ -69,16 +69,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1701849526,
-        "narHash": "sha256-GIW4JIKqFsUVtKCwgm/TnNkTy1UYUoN9hC3OJmwN1Sg=",
+        "lastModified": 1702406744,
+        "narHash": "sha256-xNGHI2rVDwOL82WaMnfByAet4UNnPwCgnaVRiZBG8Xg=",
         "owner": "pythoneda-shared-pythoneda-def",
         "repo": "domain",
-        "rev": "92368cbd82e340fc5a718c715092a5ce2e96b773",
+        "rev": "0f4daff05ad90ba9a7d6accb25326b117c935b04",
         "type": "github"
       },
       "original": {
         "owner": "pythoneda-shared-pythoneda-def",
-        "ref": "0.0.9",
+        "ref": "0.0.11",
         "repo": "domain",
         "type": "github"
       }
