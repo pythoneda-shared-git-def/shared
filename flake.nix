@@ -31,7 +31,7 @@
       inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
-      url = "github:pythoneda-shared-pythoneda-def/domain/0.0.17";
+      url = "github:pythoneda-shared-pythoneda-def/domain/0.0.18";
     };
   };
   outputs = inputs:
