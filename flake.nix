@@ -24,14 +24,14 @@
     pythoneda-shared-banner = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
-      url = "github:pythoneda-shared-def/banner/0.0.41";
+      url = "github:pythoneda-shared-def/banner/0.0.42";
     };
     pythoneda-shared-domain = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-banner.follows =
         "pythoneda-shared-banner";
-      url = "github:pythoneda-shared-def/domain/0.0.23";
+      url = "github:pythoneda-shared-def/domain/0.0.24";
     };
   };
   outputs = inputs:
