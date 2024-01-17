@@ -31,7 +31,7 @@ GitPython = "^@gitPython@"
 packaging = "^@packaging@"
 paramiko = "^@paramiko@"
 python = "^@pythonMajorMinorVersion@"
-pythoneda-shared-pythoneda-domain = "^@pythonedaSharedPythonedaDomain@"
+pythoneda-shared-domain = "^@pythonedaSharedDomain@"
 semver = "^@semver@"
 
 [build-system]
