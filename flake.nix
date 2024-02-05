@@ -29,9 +29,14 @@
     pythoneda-shared-domain = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
-      inputs.pythoneda-shared-banner.follows =
-        "pythoneda-shared-banner";
+      inputs.pythoneda-shared-banner.follows = "pythoneda-shared-banner";
       url = "github:pythoneda-shared-def/domain/0.0.31";
+    };
+    pythoneda-shared-pythonlang-shell = {
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
+      inputs.pythoneda-shared-banner.follows = "pythoneda-shared-banner";
+      url = "github:pythoneda-shared-pythonlang-def/shell/0.0.4";
     };
   };
   outputs = inputs:
@@ -57,8 +62,8 @@
         nixpkgsRelease =
           builtins.replaceStrings [ "\n" ] [ "" ] "nixos-${nixosVersion}";
         shared = import "${pythoneda-shared-banner}/nix/shared.nix";
-        pythoneda-shared-git-shared-for =
-          { python, pythoneda-shared-domain }:
+        pythoneda-shared-git-shared-for = { python, pythoneda-shared-domain
+          , pythoneda-shared-pythonlang-shell }:
           let
             pnameWithUnderscores =
               builtins.replaceStrings [ "-" ] [ "_" ] pname;
@@ -83,8 +88,9 @@
               package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
               packaging = python.pkgs.packaging.version;
               paramiko = python.pkgs.paramiko.version;
-              pythonedaSharedDomain =
-                pythoneda-shared-domain.version;
+              pythonedaSharedDomain = pythoneda-shared-domain.version;
+              pythonedaSharedPythonlangShell =
+                pythoneda-shared-pythonlang-shell.version;
               semver = python.pkgs.semver.version;
               src = pyprojectTemplateFile;
             };
@@ -103,6 +109,7 @@
               packaging
               paramiko
               pythoneda-shared-domain
+              pythoneda-shared-pythonlang-shell
               requests
               semver
             ];
@@ -204,24 +211,32 @@
               python = pkgs.python38;
               pythoneda-shared-domain =
                 pythoneda-shared-domain.packages.${system}.pythoneda-shared-domain-python38;
+              pythoneda-shared-pythonlang-shell =
+                pythoneda-shared-pythonlang-shell.packages.${system}.pythoneda-shared-pythonlang-shell-python38;
             };
           pythoneda-shared-git-shared-python39 =
             pythoneda-shared-git-shared-for {
               python = pkgs.python39;
               pythoneda-shared-domain =
                 pythoneda-shared-domain.packages.${system}.pythoneda-shared-domain-python39;
+              pythoneda-shared-pythonlang-shell =
+                pythoneda-shared-pythonlang-shell.packages.${system}.pythoneda-shared-pythonlang-shell-python39;
             };
           pythoneda-shared-git-shared-python310 =
             pythoneda-shared-git-shared-for {
               python = pkgs.python310;
               pythoneda-shared-domain =
                 pythoneda-shared-domain.packages.${system}.pythoneda-shared-domain-python310;
+              pythoneda-shared-pythonlang-shell =
+                pythoneda-shared-pythonlang-shell.packages.${system}.pythoneda-shared-pythonlang-shell-python310;
             };
           pythoneda-shared-git-shared-python311 =
             pythoneda-shared-git-shared-for {
               python = pkgs.python311;
               pythoneda-shared-domain =
                 pythoneda-shared-domain.packages.${system}.pythoneda-shared-domain-python311;
+              pythoneda-shared-pythonlang-shell =
+                pythoneda-shared-pythonlang-shell.packages.${system}.pythoneda-shared-pythonlang-shell-python311;
             };
         };
       });

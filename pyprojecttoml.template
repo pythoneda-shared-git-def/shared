@@ -32,6 +32,7 @@ packaging = "^@packaging@"
 paramiko = "^@paramiko@"
 python = "^@pythonMajorMinorVersion@"
 pythoneda-shared-domain = "^@pythonedaSharedDomain@"
+pythoneda-shared-pythonlang-shell = "^@pythonedaSharedPythonlangShell@"
 semver = "^@semver@"
 
 [build-system]
