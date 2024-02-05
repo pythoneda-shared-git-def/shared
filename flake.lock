@@ -69,16 +69,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1706560553,
-        "narHash": "sha256-afsOtqMK2PHpbfHMaIy6hkepFuARc/F4GWd0DaWdlks=",
+        "lastModified": 1707131426,
+        "narHash": "sha256-/UxXLvpfVeKh1y/V37BZLPjuJ2KRwCU7gff3bQHcovw=",
         "owner": "pythoneda-shared-def",
         "repo": "domain",
-        "rev": "405057de08c7f9e25da3ce11bdacef600b0300e0",
+        "rev": "d113794dadec1072f81b0cba2565d9bc30fd71ba",
         "type": "github"
       },
       "original": {
         "owner": "pythoneda-shared-def",
-        "ref": "0.0.31",
+        "ref": "0.0.32",
         "repo": "domain",
         "type": "github"
       }
@@ -99,16 +99,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1706560553,
-        "narHash": "sha256-afsOtqMK2PHpbfHMaIy6hkepFuARc/F4GWd0DaWdlks=",
+        "lastModified": 1707131426,
+        "narHash": "sha256-/UxXLvpfVeKh1y/V37BZLPjuJ2KRwCU7gff3bQHcovw=",
         "owner": "pythoneda-shared-def",
         "repo": "domain",
-        "rev": "405057de08c7f9e25da3ce11bdacef600b0300e0",
+        "rev": "d113794dadec1072f81b0cba2565d9bc30fd71ba",
         "type": "github"
       },
       "original": {
         "owner": "pythoneda-shared-def",
-        "ref": "0.0.31",
+        "ref": "0.0.32",
         "repo": "domain",
         "type": "github"
       }
@@ -127,16 +127,16 @@
         "pythoneda-shared-domain": "pythoneda-shared-domain_2"
       },
       "locked": {
-        "lastModified": 1707121828,
-        "narHash": "sha256-1K7zs3Htb4FKRePCa43hwq6Iv6x00R4Yh5CwLuXrjdA=",
+        "lastModified": 1707152829,
+        "narHash": "sha256-nW6MAiquyrEiVMKP4emDVcvcaIx9tGOlUIg6rVphHvs=",
         "owner": "pythoneda-shared-pythonlang-def",
         "repo": "shell",
-        "rev": "f9733f255f37a65d5dd8e4e4b8120eb6cba809af",
+        "rev": "5264e009439d0c367f97ed59b93b57462d5ef54c",
         "type": "github"
       },
       "original": {
         "owner": "pythoneda-shared-pythonlang-def",
-        "ref": "0.0.4",
+        "ref": "0.0.5",
         "repo": "shell",
         "type": "github"
       }
