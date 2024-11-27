@@ -1,1 +1,6 @@
 result
+.release-tag.sh.*
+.sync-pythoneda-project.sh.*
+deps.txt
+deps.png
+src
