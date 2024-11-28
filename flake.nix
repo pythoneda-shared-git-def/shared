@@ -31,14 +31,14 @@
       inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythonlang-banner.follows =
         "pythoneda-shared-pythonlang-banner";
-      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.88";
+      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.89";
     };
     pythoneda-shared-pythonlang-shell = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythonlang-banner.follows =
         "pythoneda-shared-pythonlang-banner";
-      url = "github:pythoneda-shared-pythonlang-def/shell/0.0.33";
+      url = "github:pythoneda-shared-pythonlang-def/shell/0.0.34";
     };
   };
   outputs = inputs:
