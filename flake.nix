@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 {
-  description = "Shared kernel modelled after git concepts";
+  description = "Nix flake for pythoneda-shared-git/shared";
   inputs = rec {
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
     nixos.url = "github:NixOS/nixpkgs/24.05";
@@ -146,23 +146,7 @@
       in rec {
         defaultPackage = packages.default;
         devShells = rec {
-          default = pythoneda-shared-git-shared-default;
-          pythoneda-shared-git-shared-default =
-            pythoneda-shared-git-shared-python312;
-          pythoneda-shared-git-shared-python38 = shared.devShell-for {
-            banner = "${
-                pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python38
-              }/bin/banner.sh";
-            extra-namespaces = "";
-            nixpkgs-release = nixpkgsRelease;
-            package = packages.pythoneda-shared-git-shared-python38;
-            python = pkgs.python38;
-            pythoneda-shared-pythonlang-banner =
-              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python38;
-            pythoneda-shared-pythonlang-domain =
-              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python38;
-            inherit archRole layer org pkgs repo space;
-          };
+          default = pythoneda-shared-git-shared-python312;
           pythoneda-shared-git-shared-python39 = shared.devShell-for {
             banner = "${
                 pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python39
@@ -219,19 +203,23 @@
               pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python312;
             inherit archRole layer org pkgs repo space;
           };
+          pythoneda-shared-git-shared-python313 = shared.devShell-for {
+            banner = "${
+                pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313
+              }/bin/banner.sh";
+            extra-namespaces = "";
+            nixpkgs-release = nixpkgsRelease;
+            package = packages.pythoneda-shared-git-shared-python313;
+            python = pkgs.python313;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python313;
+            inherit archRole layer org pkgs repo space;
+          };
         };
         packages = rec {
-          default = pythoneda-shared-git-shared-default;
-          pythoneda-shared-git-shared-default =
-            pythoneda-shared-git-shared-python312;
-          pythoneda-shared-git-shared-python38 =
-            pythoneda-shared-git-shared-for {
-              python = pkgs.python38;
-              pythoneda-shared-pythonlang-domain =
-                pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python38;
-              pythoneda-shared-pythonlang-shell =
-                pythoneda-shared-pythonlang-shell.packages.${system}.pythoneda-shared-pythonlang-shell-python38;
-            };
+          default = pythoneda-shared-git-shared-python312;
           pythoneda-shared-git-shared-python39 =
             pythoneda-shared-git-shared-for {
               python = pkgs.python39;
@@ -263,6 +251,14 @@
                 pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python312;
               pythoneda-shared-pythonlang-shell =
                 pythoneda-shared-pythonlang-shell.packages.${system}.pythoneda-shared-pythonlang-shell-python312;
+            };
+          pythoneda-shared-git-shared-python313 =
+            pythoneda-shared-git-shared-for {
+              python = pkgs.python313;
+              pythoneda-shared-pythonlang-domain =
+                pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python313;
+              pythoneda-shared-pythonlang-shell =
+                pythoneda-shared-pythonlang-shell.packages.${system}.pythoneda-shared-pythonlang-shell-python313;
             };
         };
       });
