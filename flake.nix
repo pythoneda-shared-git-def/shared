@@ -51,6 +51,7 @@
         sha256 = "1539gqri83v7i5v2vj0nc8ldfd09lfxi4vdg33r1pd2yq82fc06f";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.shared.git";
+        package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
         pkgs = import nixpkgs { inherit system; };
         description = "Shared kernel modelled after git concepts";
         license = pkgs.lib.licenses.gpl3;
@@ -88,7 +89,6 @@
               gitPython = python.pkgs.GitPython.version;
               inherit homepage pname pythonMajorMinorVersion package
                 version;
-              package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
               packaging = python.pkgs.packaging.version;
               paramiko = python.pkgs.paramiko.version;
               pythonedaSharedPythonlangDomain =
