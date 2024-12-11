@@ -86,7 +86,7 @@
               desc = description;
               dulwich = python.pkgs.dulwich.version;
               gitPython = python.pkgs.GitPython.version;
-              inherit homepage pname pythonMajorMinorVersion pythonpackage
+              inherit homepage pname pythonMajorMinorVersion package
                 version;
               package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
               packaging = python.pkgs.packaging.version;
