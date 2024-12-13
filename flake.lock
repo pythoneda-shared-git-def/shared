@@ -78,7 +78,7 @@
       },
       "original": {
         "owner": "pythoneda-shared-pythonlang-def",
-        "ref": "0.0.101",
+        "ref": "0.0.102",
         "repo": "domain",
         "type": "github"
       }
@@ -108,7 +108,7 @@
       },
       "original": {
         "owner": "pythoneda-shared-pythonlang-def",
-        "ref": "0.0.101",
+        "ref": "0.0.102",
         "repo": "domain",
         "type": "github"
       }
@@ -127,16 +127,16 @@
         "pythoneda-shared-pythonlang-domain": "pythoneda-shared-pythonlang-domain_2"
       },
       "locked": {
-        "lastModified": 1733944804,
-        "narHash": "sha256-4lQEVzKaN3KDxbAAesxB/7pKk2hzKnPnCVB2OpiMy+g=",
+        "lastModified": 1734069824,
+        "narHash": "sha256-8ffIKEs4nf64c/orSXApe4x5tOavPg155fj/QnJQyvE=",
         "owner": "pythoneda-shared-pythonlang-def",
         "repo": "shell",
-        "rev": "7b49baaa7d9c004d03a3b988890de1d234d33ec6",
+        "rev": "b39c35624cc6027097ffc3e1734c764f2dd8bcd9",
         "type": "github"
       },
       "original": {
         "owner": "pythoneda-shared-pythonlang-def",
-        "ref": "0.0.42",
+        "ref": "0.0.43",
         "repo": "shell",
         "type": "github"
       }
