@@ -69,16 +69,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1735637228,
-        "narHash": "sha256-jRpZzZe13K+MF8O7kdiLzUd0Re7id/wq3fsRC1tnVKI=",
+        "lastModified": 1735924918,
+        "narHash": "sha256-WwoJ2spPCETM0D3ubLQ0PcjW7J4ArxkMp+N2NqR+XiI=",
         "owner": "pythoneda-shared-pythonlang-def",
         "repo": "domain",
-        "rev": "620609c96549dc059d4089b4fb7788819094007b",
+        "rev": "3dceb9ae3aea116b65c528e41c1a2c9722cb6953",
         "type": "github"
       },
       "original": {
         "owner": "pythoneda-shared-pythonlang-def",
-        "ref": "0.0.109",
+        "ref": "0.0.110",
         "repo": "domain",
         "type": "github"
       }
@@ -99,16 +99,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1735637228,
-        "narHash": "sha256-jRpZzZe13K+MF8O7kdiLzUd0Re7id/wq3fsRC1tnVKI=",
+        "lastModified": 1735924918,
+        "narHash": "sha256-WwoJ2spPCETM0D3ubLQ0PcjW7J4ArxkMp+N2NqR+XiI=",
         "owner": "pythoneda-shared-pythonlang-def",
         "repo": "domain",
-        "rev": "620609c96549dc059d4089b4fb7788819094007b",
+        "rev": "3dceb9ae3aea116b65c528e41c1a2c9722cb6953",
         "type": "github"
       },
       "original": {
         "owner": "pythoneda-shared-pythonlang-def",
-        "ref": "0.0.109",
+        "ref": "0.0.110",
         "repo": "domain",
         "type": "github"
       }
@@ -127,16 +127,16 @@
         "pythoneda-shared-pythonlang-domain": "pythoneda-shared-pythonlang-domain_2"
       },
       "locked": {
-        "lastModified": 1735637486,
-        "narHash": "sha256-5sDbObWQ64U5CgoBaMbrJ7lIH1NBF4Licpxg5iwhM/c=",
+        "lastModified": 1735925176,
+        "narHash": "sha256-wDlCK0VVUSIbK1hF32i2nqC5uqHIhRAo3izcaY1Lt/Q=",
         "owner": "pythoneda-shared-pythonlang-def",
         "repo": "shell",
-        "rev": "1ab72f331019680aa3769d17526a9bde5e3ef428",
+        "rev": "3848ae1faf3c89ae9561813c5f240ae0e0373bc2",
         "type": "github"
       },
       "original": {
         "owner": "pythoneda-shared-pythonlang-def",
-        "ref": "0.0.49",
+        "ref": "0.0.50",
         "repo": "shell",
         "type": "github"
       }
