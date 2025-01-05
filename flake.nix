@@ -47,8 +47,8 @@
       let
         org = "pythoneda-shared-git";
         repo = "shared";
-        version = "0.0.14";
-        sha256 = "1539gqri83v7i5v2vj0nc8ldfd09lfxi4vdg33r1pd2yq82fc06f";
+        version = "0.0.15";
+        sha256 = "08vhrmv524vkxf0w585birinsjdigyr5nnwvxmv159zwqwxv85dn";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.shared.git";
         package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
