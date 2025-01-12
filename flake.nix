@@ -24,21 +24,21 @@
     pythoneda-shared-pythonlang-banner = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:pythoneda-shared-pythonlang-def/banner/0.0.74";
+      url = "github:pythoneda-shared-pythonlang-def/banner/0.0.78";
     };
     pythoneda-shared-pythonlang-domain = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.pythoneda-shared-pythonlang-banner.follows =
         "pythoneda-shared-pythonlang-banner";
-      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.110";
+      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.112";
     };
     pythoneda-shared-pythonlang-shell = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.pythoneda-shared-pythonlang-banner.follows =
         "pythoneda-shared-pythonlang-banner";
-      url = "github:pythoneda-shared-pythonlang-def/shell/0.0.50";
+      url = "github:pythoneda-shared-pythonlang-def/shell/0.0.52";
     };
   };
   outputs = inputs:
