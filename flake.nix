@@ -31,14 +31,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.pythoneda-shared-pythonlang-banner.follows =
         "pythoneda-shared-pythonlang-banner";
-      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.128";
+      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.129";
     };
     pythoneda-shared-pythonlang-shell = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.pythoneda-shared-pythonlang-banner.follows =
         "pythoneda-shared-pythonlang-banner";
-      url = "github:pythoneda-shared-pythonlang-def/shell/0.0.63";
+      url = "github:pythoneda-shared-pythonlang-def/shell/0.0.64";
     };
   };
   outputs = inputs:
@@ -47,8 +47,8 @@
       let
         org = "pythoneda-shared-git";
         repo = "shared";
-        version = "0.0.15";
-        sha256 = "08vhrmv524vkxf0w585birinsjdigyr5nnwvxmv159zwqwxv85dn";
+        version = "0.0.16";
+        sha256 = "0ni9lr479y2pzzg357qdmcrh76cy4h420xh0z6f50dr018y8ixq1";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.shared.git";
         package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
